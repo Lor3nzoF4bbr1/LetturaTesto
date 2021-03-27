@@ -7,6 +7,6 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-
+        <ProgressBar x:Name="pBar1" HorizontalAlignment="Left" Height="54" Margin="148,320,0,0" VerticalAlignment="Top" Width="480"/>
     </Grid>
 </Window>

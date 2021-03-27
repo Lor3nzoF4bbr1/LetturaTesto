@@ -33,6 +33,7 @@ namespace LetturaTesto
             fileName = "Data.txt";
 
             CalcolaCaratteri(fileName);
+            ProgressBar();
         }
 
         private async void CalcolaCaratteri(string name)
@@ -44,9 +45,26 @@ namespace LetturaTesto
                     testo = File.ReadAllText(name);
                 }
 
+                Thread.Sleep(2000);
                 caratteri = testo.Length;
             });
 
+            MessageBox.Show("Sono presenti " + caratteri.ToString() + " caratteri.");
+        }
+
+        private async void ProgressBar()
+        {
+            await Task.Run(() =>
+            {
+                for (int i = 0; i <= 100; i += 10)
+                {
+                    this.Dispatcher.BeginInvoke(new Action(() =>
+                    {
+                        pBar1.Value = i;
+                    }));
+                    Thread.Sleep(150);
+                }
+            });
         }
     }
 }
